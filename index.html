@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geography Quiz</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div>
+      <h1 style="text-align: center">Geography Quiz</h1>
+      <img
+        id="flags"
+        src="187-1871242_clipart19464-world-flags-globe-png.png"
+        alt="Globe of Flags"
+      />
+    </div>
+    <div class="container">
+      <div id="startpage">
+        <h2>How much do you know about geography?</h2>
+        <h2>This quiz will test your knowledge.</h2>
+        <button id="startbtn">Start Code Quiz</button>
+        <button id="startPageHighscore" onclick="showHighscore()">
+          High Scores
+        </button>
+      </div>
+
+      <div id="quiz">
+        <div id="timer">Time left:</div>
+        <div id="questions"><p>Questions Placeholder</p></div>
+        <button id="a" onclick="checkAnswer('a')">A</button>
+        <button id="b" onclick="checkAnswer('b')">B</button>
+        <button id="c" onclick="checkAnswer('c')">C</button>
+        <button id="d" onclick="checkAnswer('d')">D</button>
+        <div id="result"></div>
+      </div>
+      <div id="gameover">
+        <div id="finalScore"></div>
+        <input
+          type="text"
+          size="40"
+          placeholder="Enter you initials for high score"
+          name="intials"
+          id="initials"
+        />
+        <button id="submitScore">Submit Score</button>
+      </div>
+      <div id="highscoreContainer">
+        <div id="high-scorePage">
+          <div id="highscore-header">
+            <h3>User Initials</h3>
+            <h3>Score</h3>
+          </div>
+          <div id="highscore-initials"></div>
+          <div id="highscore-score"></div>
+        </div>
+        <div id="endGameBtns">
+          <button id="playAgain" onclick="replayQuiz()">Play Again</button>
+          <button id="clearHighscore" onclick="clearScore()">
+            Clear Highscores
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
