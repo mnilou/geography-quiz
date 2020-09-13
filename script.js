@@ -97,7 +97,7 @@ var quizQuestions = [
 // Other global variables
 var finalQuestionIndex = quizQuestions.length;
 var currentQuestionIndex = 0;
-var timeLeft = 76;
+var timeLeft = 60;
 var timerInterval;
 var score = 0;
 var correct;
@@ -219,7 +219,7 @@ function checkAnswer(answer) {
 
   if (answer === correct && currentQuestionIndex !== finalQuestionIndex) {
     score++;
-    alert("That Is Correct!");
+    alert("That is Correct!");
     currentQuestionIndex++;
     generateQuizQuestion();
     //display in the results div that the answer is correct.
@@ -227,7 +227,7 @@ function checkAnswer(answer) {
     answer !== correct &&
     currentQuestionIndex !== finalQuestionIndex
   ) {
-    alert("That Is Incorrect.");
+    alert("That is not correct.");
     currentQuestionIndex++;
     generateQuizQuestion();
     //display in the results div that the answer is wrong.
