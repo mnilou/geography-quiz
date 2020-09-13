@@ -1,15 +1,15 @@
 // Gathering HTML elements for manipulation
-var quizBody = document.getElementById("quiz");
+var quizMain = document.getElementById("quiz");
 var resultsEl = document.getElementById("result");
 var finalScoreEl = document.getElementById("finalScore");
-var gameoverDiv = document.getElementById("gameover");
+var gameOverDiv = document.getElementById("gameover");
 var questionsEl = document.getElementById("questions");
-var quizTimer = document.getElementById("timer");
+var timerEl = document.getElementById("timer");
 var startQuizButton = document.getElementById("startbtn");
 var startQuizDiv = document.getElementById("startpage");
 var highscoreContainer = document.getElementById("highscoreContainer");
 var highscoreDiv = document.getElementById("high-scorePage");
-var highscoreInputName = document.getElementById("initials");
+var highscoreInitials = document.getElementById("initials");
 var highscoreDisplayName = document.getElementById("highscore-initials");
 var endGameBtns = document.getElementById("endGameBtns");
 var submitScoreBtn = document.getElementById("submitScore");
@@ -104,7 +104,7 @@ var correct;
 
 // This function cycles through the object array containing the quiz questions to generate the questions and answers.
 function generateQuizQuestion() {
-  gameoverDiv.style.display = "none";
+  gameOverDiv.style.display = "none";
   if (currentQuestionIndex === finalQuestionIndex) {
     return showScore();
   }
@@ -118,28 +118,28 @@ function generateQuizQuestion() {
 
 // Start Quiz function starts the TimeRanges, hides the start button, and displays the first quiz question.
 function startQuiz() {
-  gameoverDiv.style.display = "none";
+  gameOverDiv.style.display = "none";
   startQuizDiv.style.display = "none";
   generateQuizQuestion();
 
   //Timer
   timerInterval = setInterval(function () {
     timeLeft--;
-    quizTimer.textContent = "Time left: " + timeLeft;
+    timerEl.textContent = "Time left: " + timeLeft;
 
     if (timeLeft === 0) {
       clearInterval(timerInterval);
       showScore();
     }
   }, 1000);
-  quizBody.style.display = "block";
+  quizMain.style.display = "block";
 }
 // This function is the end page screen that displays your score after either completeing the quiz or upon timer run out
 function showScore() {
-  quizBody.style.display = "none";
-  gameoverDiv.style.display = "flex";
+  quizMain.style.display = "none";
+  gameOverDiv.style.display = "flex";
   clearInterval(timerInterval);
-  highscoreInputName.value = "";
+  highscoreInitials.value = "";
   finalScoreEl.innerHTML =
     "You got " + score + " out of " + quizQuestions.length + " correct!";
 }
@@ -147,19 +147,19 @@ function showScore() {
 // On click of the submit button, we run the function highscore that saves and stringifies the array of high scores already saved in local stoage
 // as well as pushing the new user name and score into the array we are saving in local storage. Then it runs the function to show high scores.
 submitScoreBtn.addEventListener("click", function highscore() {
-  if (highscoreInputName.value === "") {
+  if (highscoreInitials.value === "") {
     alert("Initials cannot be blank");
     return false;
   } else {
     var savedHighscores =
       JSON.parse(localStorage.getItem("savedHighscores")) || [];
-    var currentUser = highscoreInputName.value.trim();
+    var currentUser = highscoreInitials.value.trim();
     var currentHighscore = {
       name: currentUser,
       score: score,
     };
 
-    gameoverDiv.style.display = "none";
+    gameOverDiv.style.display = "none";
     highscoreContainer.style.display = "flex";
     highscoreDiv.style.display = "block";
     endGameBtns.style.display = "flex";
@@ -188,7 +188,7 @@ function generateHighscores() {
 // This function displays the high scores page while hiding all of the other pages from
 function showHighscore() {
   startQuizDiv.style.display = "none";
-  gameoverDiv.style.display = "none";
+  gameOverDiv.style.display = "none";
   highscoreContainer.style.display = "flex";
   highscoreDiv.style.display = "block";
   endGameBtns.style.display = "flex";
@@ -206,7 +206,7 @@ function clearScore() {
 // This function sets all the variables back to their original values and shows the home page to enable replay of the quiz
 function replayQuiz() {
   highscoreContainer.style.display = "none";
-  gameoverDiv.style.display = "none";
+  gameOverDiv.style.display = "none";
   startQuizDiv.style.display = "flex";
   timeLeft = 76;
   score = 0;
