@@ -97,7 +97,7 @@ var quizQuestions = [
 // Other global variables
 var finalQuestionIndex = quizQuestions.length;
 var currentQuestionIndex = 0;
-var timeLeft = 60;
+var timeLeft = 100;
 var timerInterval;
 var score = 0;
 var correct;
@@ -208,7 +208,7 @@ function replayQuiz() {
   highScoreCon.style.display = "none";
   gameOverDiv.style.display = "none";
   startQuizDiv.style.display = "flex";
-  timeLeft = 76;
+  timeLeft = 100;
   score = 0;
   currentQuestionIndex = 0;
 }
@@ -219,7 +219,7 @@ function checkAnswer(answer) {
 
   if (answer === correct && currentQuestionIndex !== finalQuestionIndex) {
     score++;
-    alert("That is Correct!");
+    alert("Correct!");
     currentQuestionIndex++;
     generateQuizQuestion();
     //display in the results div that the answer is correct.
@@ -227,7 +227,7 @@ function checkAnswer(answer) {
     answer !== correct &&
     currentQuestionIndex !== finalQuestionIndex
   ) {
-    alert("That is not correct.");
+    alert("Incorrect");
     currentQuestionIndex++;
     generateQuizQuestion();
     //display in the results div that the answer is wrong.
